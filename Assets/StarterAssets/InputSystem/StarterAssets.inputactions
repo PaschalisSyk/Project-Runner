@@ -219,12 +219,12 @@
         },
         {
             "name": "UI",
-            "id": "73905a9b-deb7-43b5-80aa-1fde874486ee",
+            "id": "fcbfcd04-0516-4a32-bdde-543551a6bc57",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "be5319ea-f080-4598-838c-107ac1f13ab3",
+                    "name": "Click",
+                    "type": "PassThrough",
+                    "id": "90ebccfa-a4ed-4e33-80f8-37948a2c55db",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -233,12 +233,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "965cfc6b-b108-4762-90ba-5931f046d5ed",
+                    "id": "7beb533a-382e-4a6c-8edb-dc80f058a09f",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "New action",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

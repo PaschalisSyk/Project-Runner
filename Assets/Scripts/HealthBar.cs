@@ -15,11 +15,13 @@ public class HealthBar : MonoBehaviour
     int ShowHP;
 
     public StarterAssets.ThirdPersonController player;
-    public Animator animator;
+    public Gradient gradient;
 
+    Score score;
     // Start is called before the first frame update
     void Start()
     {
+        score = FindObjectOfType<Score>();
         health = maxHealth;
     }
 
@@ -36,7 +38,7 @@ public class HealthBar : MonoBehaviour
         lerpSpeed = 3f * Time.deltaTime;
 
         HealthBarFiller();
-        //ColorChanger();
+        ColorChanger();
 
         if (health > 0 && player.alive)
         {
@@ -46,15 +48,15 @@ public class HealthBar : MonoBehaviour
         if (health <=0 && player.alive)
         {
             player.Die();
-            animator.SetBool("OutOfEnergy" , true);
         }
         if(!player.alive)
         {
             health = 0;
         }
+
     }
 
-    void HealthBarFiller()
+    public void HealthBarFiller()
     {
         healthbar.fillAmount = Mathf.Lerp(healthbar.fillAmount, health / maxHealth, lerpSpeed);
     }
@@ -63,6 +65,7 @@ public class HealthBar : MonoBehaviour
     {
         if (health < maxHealth)
         {
+            score.score += 50;
             health += 20;
             if (health > maxHealth)
             {
@@ -72,13 +75,12 @@ public class HealthBar : MonoBehaviour
     }
     void ColorChanger()
     {
+        healthbar.color = Healthbar1(health/100);
+    }
 
-       if (health < 25)
-       {
-            Color healthColor = Color.Lerp(healthbar.GetComponent<Image>().color,Color.red, lerpSpeed);
-            healthbar.color = healthColor;
-       }
-
+    Color Healthbar1(float healthvalue)
+    {
+        return gradient.Evaluate(healthvalue);
     }
 
 }

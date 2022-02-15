@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -105,7 +105,9 @@ namespace StarterAssets
 		public Image jumpIcon;
 		public Image noJumpIcon;
 
-		public float speedMultiplier = 0.1f;		
+		public float speedMultiplier = 0.1f;
+
+		public GameObject gameoverMenu;
 
 		private void Awake()
 		{
@@ -121,7 +123,6 @@ namespace StarterAssets
 
 		private void Start()
 		{
-
 			_hasAnimator = TryGetComponent(out _animator);
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
@@ -301,6 +302,7 @@ namespace StarterAssets
 					{
 						_animator.SetBool(_animIDJump, true);
 					}
+
 				}
 
 				// jump timeout
@@ -361,17 +363,12 @@ namespace StarterAssets
         {
             alive = false;
 			_animator.SetBool(_animIDAlive, false);
-			imageAnimator.gameObject.SetActive(true);
-			imageAnimator.SetTrigger("Start");
+
 			GetComponent<AudioSource>().Play();
 
-			Invoke("RestartScene", 2);
+			Invoke("GameOverMenu", 1.5f);
         }
 
-        private void RestartScene()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
 
 		public void JumpIcon()
         {
@@ -386,6 +383,10 @@ namespace StarterAssets
 				noJumpIcon.gameObject.SetActive(false);
             }
         }
+		void GameOverMenu()
+        {
+			gameoverMenu.SetActive(true);
+		}
 		
     }
 }

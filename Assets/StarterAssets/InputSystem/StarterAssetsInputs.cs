@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool pause;
 		public StarterAssets.ThirdPersonController thirdPerson;
 
 		[Header("Movement Settings")]
@@ -75,6 +76,11 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 
+		public void PauseInput(bool newPauseState)
+        {
+			pause = newPauseState;
+        }
+
 #if !UNITY_IOS || !UNITY_ANDROID
 
 		private void OnApplicationFocus(bool hasFocus)
@@ -84,7 +90,7 @@ namespace StarterAssets
 
 		private void SetCursorState(bool newState)
 		{
-			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+			Cursor.lockState = CursorLockMode.Confined;
 		}
 
 #endif
