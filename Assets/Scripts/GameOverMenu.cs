@@ -28,6 +28,10 @@ public class GameOverMenu : MonoBehaviour
         {
             RestartButton();
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartMenuButton();
+        }
     }
 
     public void RestartButton()
