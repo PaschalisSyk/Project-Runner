@@ -32,6 +32,10 @@ public class GameOverMenu : MonoBehaviour
         {
             StartMenuButton();
         }
+        if(Input.GetKeyDown(KeyCode.Backspace))
+        {
+            Application.Quit();
+        }
     }
 
     public void RestartButton()

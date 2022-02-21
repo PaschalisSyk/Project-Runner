@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        Invoke("NextScene", 2);
+        Invoke("NextScene", 1);
     }
 
     public void QuitGame()
