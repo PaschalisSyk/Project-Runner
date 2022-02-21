@@ -9963,6 +9963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 2198808297171015406, guid: 9ec5f4e0fbd24204ba02f4454aa505d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ec5f4e0fbd24204ba02f4454aa505d7, type: 3}
 --- !u!43 &1445417406
@@ -11868,7 +11872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8474292004914350055, guid: 138de55868470ec4c95ed998f826a112, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.4935835
+      value: 0.746995
       objectReference: {fileID: 0}
     - target: {fileID: 8474292004914350055, guid: 138de55868470ec4c95ed998f826a112, type: 3}
       propertyPath: m_LocalRotation.x
