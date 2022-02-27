@@ -108,6 +108,7 @@ namespace StarterAssets
 		public float speedMultiplier = 0.1f;
 
 		public GameObject gameoverMenu;
+		public GameObject inGameUI;
 
 		private void Awake()
 		{
@@ -144,9 +145,8 @@ namespace StarterAssets
                 return;
             }
 
-
+			GroundedCheck();
 			JumpAndGravity();
-            GroundedCheck();
             Move();
 			JumpIcon();
 
@@ -385,7 +385,9 @@ namespace StarterAssets
         }
 		void GameOverMenu()
         {
+			inGameUI.SetActive(false);
 			gameoverMenu.SetActive(true);
+
 		}
 		
     }

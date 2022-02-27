@@ -8,6 +8,7 @@ public class WarpParticles : MonoBehaviour
     Vector3 startPos;
     ParticleSystem ps;
     StarterAssets.ThirdPersonController player;
+    StarterAssets.StarterAssetsInputs sprint;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,7 @@ public class WarpParticles : MonoBehaviour
         startPos = new Vector3(0, -5, 0);
         transform.position = startPos;
         player = FindObjectOfType<StarterAssets.ThirdPersonController>();
+        sprint = FindObjectOfType<StarterAssets.StarterAssetsInputs>();
     }
 
     // Update is called once per frame
@@ -25,7 +27,7 @@ public class WarpParticles : MonoBehaviour
     }
     void PlayParticles()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (sprint.sprint == true)
         {
             ps.Play();
         }

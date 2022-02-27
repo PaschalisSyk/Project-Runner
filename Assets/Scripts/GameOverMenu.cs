@@ -11,13 +11,17 @@ public class GameOverMenu : MonoBehaviour
     public Animator imageAnimator;
     public GameObject gameUI;
     public GameObject music;
+    public GameObject player;
+    GameOverTrigger gameOver;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameOver = FindObjectOfType<GameOverTrigger>();
         gameUI.SetActive(false);
         music.SetActive(false);
         Time.timeScale = 0f;
+        player.SetActive(false);
 
     }
 
@@ -40,10 +44,8 @@ public class GameOverMenu : MonoBehaviour
 
     public void RestartButton()
     {
-        imageAnimator.gameObject.SetActive(true);
-        imageAnimator.SetTrigger("Start");
 
-        Invoke("RestartScene", 2);
+       // Invoke("RestartScene", 2);
 
     }
     public void StartMenuButton()
@@ -53,7 +55,12 @@ public class GameOverMenu : MonoBehaviour
 
     public void RestartScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        imageAnimator.gameObject.SetActive(true);
+        imageAnimator.SetTrigger("Start");
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameOver.RestartScene();
+
     }
     public void QuitGame()
     {

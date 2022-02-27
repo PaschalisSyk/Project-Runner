@@ -16,6 +16,7 @@ public class HealthBar : MonoBehaviour
 
     public StarterAssets.ThirdPersonController player;
     public Gradient gradient;
+    public Animator animator;
 
     Score score;
     // Start is called before the first frame update
@@ -48,6 +49,7 @@ public class HealthBar : MonoBehaviour
         if (health <=0 && player.alive)
         {
             player.Die();
+            animator.SetBool("OutOfEnergy", true);
         }
         if(!player.alive)
         {

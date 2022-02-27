@@ -9,13 +9,19 @@ public class Energy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ( other.gameObject.name != "Player")
+        if ( other.gameObject.name == "Obstacle")
+        {
+            Destroy(gameObject);
+        }
+        if (other.gameObject.name == "Player")
+        {
+            Destroy(gameObject);
+            health.Heal();
+        }
+        else
         {
             return;
         }
-
-        Destroy(gameObject);
-        health.Heal();
     }
     // Start is called before the first frame update
     void Start()
